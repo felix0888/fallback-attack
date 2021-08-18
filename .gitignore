@@ -1,0 +1,11 @@
+.coverage_artifacts/
+.coverage_contracts/
+artifacts/
+build/
+cache/
+coverage/
+deployments/
+node_modules/
+package-lock.json
+coverage/
+coverage.json

@@ -1,0 +1,31 @@
+{
+  "name": "fallback-attack",
+  "version": "1.0.0",
+  "description": "Smart Contract Security Practice | Lv1 Fallback Attack ``` !!! DON'T TRY ON MAINNET !!! ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixnan88/fallback-attack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixnan88/fallback-attack/issues"
+  },
+  "homepage": "https://github.com/felixnan88/fallback-attack#readme",
+  "dependencies": {
+    "hardhat": "^2.6.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.4"
+  }
+}
