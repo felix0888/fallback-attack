@@ -40,7 +40,11 @@ describe("Fallback", function() {
       expect(await fb.contributions(user1.address)).to.equal(4 * 10**14);
     });
 
-    xit("should change the owner if contribution is bigger than the owner", async function() {
+    it("should change the owner if contribution is bigger than the owner", async function() {
+      /** contributions(owner) = 1000 ether
+       *  require(msg.value < 0.001 ether); from contribute function
+       *  it means at least 1,000,000 times contribution makes him the one more contribution than the owner
+       */
     });
   });
 
@@ -80,13 +84,13 @@ describe("Fallback", function() {
     it("should be reverted when fallback is triggered by one without any contribution", async function() {
       await expect(
         user1.sendTransaction({to: fb.address, value: ethers.utils.parseEther("1")})
-      )
+      ).to.be.reverted;
     });
 
     it("should change the owner when fallback method is triggered with ether", async function() {
       await fb.connect(user1).contribute({value: 10**14});
       await user1.sendTransaction({to: fb.address, value: ethers.utils.parseEther("1")});
       expect(await fb.owner()).to.equal(user1.address);
-    })
+    });
   });
 });
