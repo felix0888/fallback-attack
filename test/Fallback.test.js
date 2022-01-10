@@ -1,8 +1,6 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-const bigNum = num=>(num + '0'.repeat(18));
-
 describe("Fallback", function() {
   let Fallback;
   let fb;
@@ -20,7 +18,7 @@ describe("Fallback", function() {
   describe("deployment", function() {
     it("should set the owner of the contract and gives contribution", async function() {
       expect(await fb.owner()).to.equal(owner.address);
-      expect(await fb.contributions(owner.address)).to.equal(bigNum(1000));
+      expect(await fb.contributions(owner.address)).to.equal(ethers.utils.parseEther("1000"));
     });
   });
 
