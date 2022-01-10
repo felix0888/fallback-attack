@@ -15,7 +15,7 @@ Look carefully at the contract's code below. You find a security risk on the con
 #### Things that might help
 - How to send ether when interacting with an ABI
 - How to send ether outside of the ABI
-- Difference between send vs call
+- Difference between send - call - transfer
 - Converting to and from wei/ether units (see help() command)
 - Fallback methods
 
