@@ -1,15 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "../victims/Fallback.sol";
-import "hardhat/console.sol";
-
 contract FallbackAttack {
     address payable public attacker;
     address public fb;
     bytes4 private constant CONTRIBUTE_SELCTOR = bytes4(keccak256(bytes('contribute()')));
     bytes4 private constant WITHDRAW_SELECTOR = bytes4(keccak256(bytes('withdraw()')));
-
 
     constructor() {
         attacker = payable(msg.sender);
