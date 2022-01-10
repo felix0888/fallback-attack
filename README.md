@@ -1,4 +1,4 @@
-# FALLBACK ATTACK
+# Fallback Attack
 Smart Contract Security Practice | Lv1 Fallback Attack
 ```
 !!! DON'T TRY ON MAINNET !!!
@@ -103,3 +103,5 @@ npx hardhat run --network [NETWORK-NAME] scripts/deploy.js
 ```
 npx hardhat test
 ```
+
+You can test fallback on the local hardhat node as well.
