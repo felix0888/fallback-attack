@@ -8,12 +8,11 @@ describe("FallbackAttack", function() {
   let fallbackAttack;
   let owner;
   let attacker;
-  let user1;
-  let user2;
+  let alice;
   let signers;
 
   beforeEach(async function() {
-    [owner, attacker, user1, user2, ...signers] = await ethers.getSigners();
+    [owner, attacker, alice, ...signers] = await ethers.getSigners();
     Fallback = await ethers.getContractFactory("Fallback");
     fallback = await Fallback.connect(owner).deploy();
     FallbackAttack = await ethers.getContractFactory("FallbackAttack");
@@ -29,12 +28,13 @@ describe("FallbackAttack", function() {
 
   describe("attack", function() {
     it("should transfer ether from Fallback contract", async function() {
-      await fallback.connect(user1).contribute({value: 10**14});
-      await user1.sendTransaction({to: fallback.address, value: ethers.utils.parseEther("1")});
+      await fallback.connect(alice).contribute({value: 10**14});
+      await alice.sendTransaction({to: fallback.address, value: ethers.utils.parseEther("1")});
       expect(await ethers.provider.getBalance(fallback.address)).to.gt(ethers.utils.parseEther("1"));
 
       await fallbackAttack.connect(attacker).attack(fallback.address, { value: 10**15 });
       expect(await ethers.provider.getBalance(fallback.address)).to.equal(0);
+      expect(await ethers.provider.getBalance(fallbackAttack.address)).to.gt(ethers.utils.parseEther("1"));
     });
   });
 });
