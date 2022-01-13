@@ -83,7 +83,7 @@ Here are some Ethereum specifications that help you to calculate it.
 In the `fallback` function, it replaces the `owner` with the new one, and the `owner` is a state variable that stores on Storage. Then you can easily get the amount of gas required for the `fallback` function as roughly more than 25,000 gas.
 
 #### Why to use call?
-But `trasfer` and `send` functions are limited with 2300 gas stipend and not adjustable. So, if you attack with `transfer` or `send`, you will get "Out of Gas" exception, and in many cases, Remix, truffle and etc, they don't give the exact error description. (It's secret that I spent a whole day to find the reason for the exception.)
+But `trasfer` and `send` functions are limited with 2300 gas stipend and not adjustable. So, if you attack with `transfer` or `send`, you will get "Out of Gas" exception, and in many cases, Remix, truffle and etc, they don't give the exact error description.
 
 With `call` you can adjust the amount gas used in the called contract, and the sufficient amount of gas will allow the target contract to replace the owner, ultimately you will get success on the attack.
 
